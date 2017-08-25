@@ -2,7 +2,9 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    development: 'http://localhost:4741',
+    production: 'http://localhost:4741'
+    // temp chnaged form https://ga-wdi-boston.herokuapp.com to trouble shoot refresh problem.  2:25PM
   }
 }
 

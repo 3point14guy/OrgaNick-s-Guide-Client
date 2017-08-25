@@ -1,42 +1,49 @@
 'use strict'
 
 const store = require('./store')
-const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
+// const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
 
 const signUpSuccess = (data) => {
-  $('.form-clear').trigger('reset')
-  $('#submit-register').modal('hide')
+  console.log('signUpSuccess function in ui')
+  // $('.form-clear').trigger('reset')
+  // $('#submit-register').modal('hide')
 }
 const signInSuccess = (data) => {
+  console.log('signInSuccess function in ui')
   store.user = data.user
   $('.api-buttons').show(1700)
   $('.display').show()
-  $('.form-clear').trigger('reset')
+  // $('.form-clear').trigger('reset')
   $('.instructions').show()
-  $('.instructions').text(data.user.email + ' You have successfully logged in. Select "View Movies"')
+  $('.instructions').text(data.user.email + ' You have successfully logged in.')
   $('.login-buttons').hide(1700)
   // $('.login-screen').hide()
   $('.logout-buttons').show(2100)
-  $('#submit-login').modal('hide')
+  // $('#submit-login').modal('hide')
   $('.title-top').show()
 }
 const signInFailure = (error) => {
+  console.log('signInFailure function in ui')
   $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2000).fadeOut('slow').modal('hide')
 }
 const signUpFailure = (error) => {
+  console.log('signUpFailure function in ui')
   $('.sign-up-message').text('There was an error creating the account. ', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const passwordChangeSuccess = function () {
+  console.log('passwordChangeSuccess function in ui')
   $('.form-clear').trigger('reset')
-  $('#submit-change-password').modal('hide')
+  // $('#submit-change-password').modal('hide')
   $('.instructions').text('Password changed successfully!')
 }
 const passwordChangeFailure = function (error) {
+  console.log('passwordChangeFailure function in ui')
   $('.change-pswrd-message').text('Password change failed.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const logoutSuccess = function () {
+  console.log('logoutSuccess function in ui')
   $('.api-buttons').hide()
   $('.form-clear').trigger('reset')
   $('.display').hide()
@@ -44,7 +51,7 @@ const logoutSuccess = function () {
   $('.instructions').text('Please login to begin.')
   $('.login-buttons').show(900)
   $('.login-screen').show()
-  $('#log-out').modal('hide')
+  // $('#log-out').modal('hide')
   $('.show-buttons').hide()
   $('#user-buttons').hide()
   $('.added').hide()
@@ -53,6 +60,7 @@ const logoutSuccess = function () {
 }
 
 const logoutFailure = function (error) {
+  console.log('logoutFailure function in ui')
   $('.logout-message').text('Oops! Something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 

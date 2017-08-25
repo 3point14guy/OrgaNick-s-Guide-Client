@@ -4,6 +4,7 @@ const config = require('./config')
 const store = require('./store')
 
 const signUp = function (data) {
+  console.log('signUp function in api')
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
     method: 'POST',
@@ -11,6 +12,7 @@ const signUp = function (data) {
   })
 }
 const signIn = function (data) {
+  console.log('signIn function in api')
   return $.ajax({
     url: config.apiOrigin + '/sign-in/',
     method: 'POST',
@@ -18,6 +20,7 @@ const signIn = function (data) {
   })
 }
 const changePassword = function (data) {
+  console.log('changePassword function in api')
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -28,6 +31,7 @@ const changePassword = function (data) {
   })
 }
 const logout = function () {
+  console.log('logout function in api')
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
@@ -37,55 +41,9 @@ const logout = function () {
   })
 }
 
-// const requestAllMovies = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/movies',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const deleteAMovie = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/movies/' + data.id,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const addAMovie = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/movies',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
-//
-// const updateARating = function (movie) {
-//   const data = movie
-//   return $.ajax({
-//     url: config.apiOrigin + '/movies/' + movie.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
 module.exports = {
   signUp,
   signIn,
   changePassword,
   logout
-  // requestAllMovies,
-  // deleteAMovie,
-  // addAMovie,
-  // updateARating
 }
