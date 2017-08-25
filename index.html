@@ -1,25 +1,202 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>OrgaNick's Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="show container-fluid">
+<div class="login-screen">
+  <div class="title-top conatiner">
+    <br/>
+    <h1>OrgaNick's Guide</h1>
+    <div class="row">
+      <div class="col-xs-12 box">
+        <p class="instructions">An app that helps you fight vegetable pests organically.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="login-buttons container">
+  <div class="row">
+    <br/>
+    <br/>
+    <br/>
+    <div class="col-sm-12 col-sm-offset-4">
+      <button type="button" class="btn btn-outline-secondary btn-lg" data-toggle="modal" data-target="#submit-login">
+  Login
+</button>
+      <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#submit-register">
+Create Login
+</button>
+    </div>
+  </div>
+</div>
+<div class="display">
+  <!-- <table class="table table-bordered table-responsive table-hover">
+    <thead>
+    <tr>
+      <th class="col-xs-1">Id</th>
+      <th class="col-xs-9">Name</th>
+      <th class="col-xs-1">Year</th>
+      <th class="col-xs-1">Rating</th>
+    </tr>
+  </thead>
+  </table> -->
+  <p class="display-list">
+logged in
+  </p>
+
+</div>
+<!-- Modal for login -->
+        <div class="modal fade" id="submit-login" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">User Login</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-clear" id="sign-in">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="credentials[email]" class="form-control"
+                    id="exampleInputEmail1" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="credentials[password]" class="form-control"
+                    id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" name="credentials[password]" class="form-control"
+                    id="exampleInputPassword1" placeholder="Confirm Password">
+                  </div>
+                  <button id="submit" type="submit" class="btn btn-default">Submit</button>
+                </form>
+              </div>
+              <div class="login-message modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+  <br/>
+  <!-- create account modal -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="modal fade" id="submit-register" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create Login</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-clear" id="sign-up">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="credentials[email]" type="email" class="form-control"
+                    id="exampleInputEmail1" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="credentials[password]" class="form-control"
+                    id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"> Confirm Password</label>
+                    <input type="password" name="credentials[password_confirmation]" class="form-control"
+                    id="exampleInputPassword1" placeholder="Re-type Password">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+              </div>
+              <div class="sign-up-message modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- modal for log out -->
+  <div class="modal fade" id="log-out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Are you sure you want to log out?</h4>
+        </div>
+        <div class="modal-body">
+        <form id="logout">
+          <button type="submit" class="btn btn-default">Yes, log out</button>
+        </form>
+      </div>
+      <div class="logout-message modal-footer" >
+      </div>
+    </div>
+    </div>
+  </div>
+  <!-- Modal for password reset-->
+  <div class="modal fade" id="submit-change-password" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Password Reset</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-clear" id="change-password">
+            <div class="form-group">
+              <label for="currentPassword">Current Password</label>
+              <input name="passwords[old]" type="password" class="form-control"
+              id="currentPassword" placeholder="Current Password">
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input type="password" name="passwords[new]" class="form-control"
+              id="newPassword" placeholder="New Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="change-pswrd-message modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- buttons for log out and change password -->
+<footer class="footer">
+<div id="user-buttons" class="logout-buttons container">
+  <div class="row">
+    <div class="col-sm-12 col-sm-offset-4">
+      <button type="button" class="logout-buttons btn btn-outline-danger btn-lg"
+      data-toggle="modal" data-target="#log-out">Log Out</button>
+      <button type="button" class="logout-buttons btn btn-out-line-danger btn-lg"
+      data-toggle="modal" data-target="#submit-change-password">Change Password</button>
+    </div>
+  </div>
+</div>
+<p class="signature">An app by Nicholas Piaskoski</p>
+</footer>
     </body>
 </html>
