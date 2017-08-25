@@ -1,0 +1,88 @@
+@import 'colors'; // moves variables over from colors.scss file
+
+body {
+  background-color: $darkgreen;
+}
+
+.login-screen {
+  // background: url('../img/theater.jpg') no-repeat;
+  // background-size: cover;
+  // height: 675px;
+  // width: auto;
+}
+
+.footer {
+  bottom: 0;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  width: 100%;
+}
+
+.display {
+  display: none;
+}
+
+.display-list {
+  border: 1px solid $white;
+  display: none;
+  height: 200px;
+  overflow: scroll;
+}
+
+.api-buttons {
+  display: none;
+}
+
+.show-buttons {
+  display: none;
+}
+
+h1 {
+  font-size: 55px;
+  text-align: center;
+}
+
+.instructions {
+  color: $orange;
+  font-size: 25px;
+  margin: 2px auto 25px;
+  text-align: center;
+  // text-shadow: 2px 2px $black;
+}
+
+.added {
+  display: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+.updated {
+  display: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+.deleted {
+  display: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+.logout-buttons {
+  display: none;
+}
+
+.signature {
+  color: $orange;
+  text-align: center;
+}
+
+.title-top {
+  color: $orange;
+  // text-shadow: 3px 3px $black;
+}
+
+button {
+  margin: 10px 30px;
+}
