@@ -36,10 +36,55 @@ const logout = function () {
     }
   })
 }
+const requestAllVegetables = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/vegetables',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
+const deleteAVegetable = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/vegetables/' + data.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const addAVegetable = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/vegetables',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+// const updateAComment = function (vegetable) {
+//   const data = vegetable
+//   return $.ajax({
+//     url: config.apiOrigin + '/vegetables/' + vegetable.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  logout
+  logout,
+  requestAllVegetables,
+  deleteAVegetable,
+  addAVegetable
+  // updateAComment
 }

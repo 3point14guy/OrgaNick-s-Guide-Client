@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const displayVegetablesTemplate = require('./templates/vegetable-listing.handlebars')
 
 const signUpSuccess = (data) => {
   $('.form-clear').trigger('reset')
@@ -33,7 +34,50 @@ const passwordChangeSuccess = function () {
 const passwordChangeFailure = function (error) {
   $('.change-pswrd-message').text('Password change failed.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
+const allVegetablesSuccess = function (data) {
+  store.vegetable = data.vegetable
+  const displayVegetablesHTML = displayVegetablesTemplate({ vegetables: data.vegetables })
+  $('.display-list').show()
+  $('.display-list').empty()
+  $('.display').show()
+  $('.instructions').text('This is your current list.')
+  $('.show-buttons').show(300)
+  $('.display-list').prepend(displayVegetablesHTML)
+  $('api-buttons').show()
+}
 
+const allVegetablesFailure = function (error) {
+  $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
+}
+
+const deleteVegetableSuccess = function () {
+  $('.instructions').text('Vegetable successfully deleted.')
+  // $('.form-clear').trigger('reset')
+  // $('#delete-a-vegetable').modal('hide')
+}
+const deleteVegetableFailure = function (error) {
+  $('.delete-vegetable').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
+}
+
+const addVegetableSuccess = function () {
+  $('.instructions').text('Vegetable successfully added.')
+  // $('.form-clear').trigger('reset')
+  // $('#add-a-vegetable').modal('hide')
+
+  // would really love to run this here while maintaining separate files getAllVegetables()
+}
+const addVegetableFailure = function (error) {
+  $('.add-vegetable').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
+}
+
+const updateCommentSuccess = function (data) {
+  $('.instructions').text('Your vegetable update was successful.')
+  // $('.form-clear').trigger('reset')
+  // $('#update-a-vegetable').modal('hide')
+}
+const updateCommentFailure = function (error) {
+  $('.update-a-comment').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
+}
 const logoutSuccess = function () {
   $('.api-buttons').hide()
   $('.form-clear').trigger('reset')
@@ -62,6 +106,14 @@ module.exports = {
   passwordChangeSuccess,
   passwordChangeFailure,
   logoutSuccess,
-  logoutFailure
+  logoutFailure,
+  allVegetablesSuccess,
+  allVegetablesFailure,
+  deleteVegetableSuccess,
+  deleteVegetableFailure,
+  addVegetableSuccess,
+  addVegetableFailure,
+  updateCommentSuccess,
+  updateCommentFailure
 
 }
