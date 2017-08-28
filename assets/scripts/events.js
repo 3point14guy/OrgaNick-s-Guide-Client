@@ -42,7 +42,7 @@ const addVegetable = function (event) {
       $('.added').show()
       $('.updated').hide()
       $('.deleted').hide()
-      getAllVegetables()
+      allVegetablesSuccess
     })
     .then(ui.addVegetableSuccess)
     .catch(ui.addVegetableFailure)
