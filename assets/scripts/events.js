@@ -17,6 +17,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(getAllVegetables)
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
@@ -34,16 +35,13 @@ const onLogout = function (event) {
 }
 const addVegetable = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.addAVegetable(data)
-    .then(function (data) {
-      $('.form-clear').trigger('reset')
-      $('#add-a-vegetable').modal('hide')
-      $('.added').show()
-      $('.updated').hide()
-      $('.deleted').hide()
-      allVegetablesSuccess
-    })
+  console.log('addVegetable event is', event)
+  api.addAVegetable()
+    // .then(function (data) {
+    //   $('.added').show()
+    //   $('.updated').hide()
+    //   $('.deleted').hide()
+    // })
     .then(ui.addVegetableSuccess)
     .catch(ui.addVegetableFailure)
 }
@@ -93,7 +91,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#logout').on('submit', onLogout)
   $('#all-vegetables').on('click', getAllVegetables)
-  $('#add-vegetable').on('submit', addVegetable)
+  $('#add-vegetable').on('click', addVegetable)
   $('#delete-vegetable').on('submit', deleteVegetable)
   // $('#update-a-rating').on('submit', updateComment)
 }

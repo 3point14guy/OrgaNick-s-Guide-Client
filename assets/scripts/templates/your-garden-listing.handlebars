@@ -1,17 +1,16 @@
 {{#each vegetables as |vegetable|}}
 
 
-
 <div>
 <!-- <tbody> -->
-    <ul class="list">
+    <ul class="your-list">
       <!-- <li>{{vegetable.id}}</li> -->
       <li><h3>{{vegetable.name}}</h3></li>
       <li><img class="image" src={{vegetable.image}} height="150" width="150"></li>
       <br/>
-      <li><button data-id="{{vegetable.id}}" class="add-vegetable dropbtn"> Add </button></li>
+      <li><textarea rows="4" cols="20">{{vegetable.comment}}</textarea></li>
       <br/>
-      <!-- <li><textarea rows="4" cols="20">{{vegetable.comment}}</textarea></li> -->
+      <li><button class="dropbtn"> Edit Comments </button></li><li><button class="dropbtn"> Delete </button></li>
     </ul>
 <!-- </tbody> -->
 </div>
