@@ -27,9 +27,24 @@ body {
 
 .display-list {
   border: 1px solid $orange;
-  display: none;
-  height: 350px;
+  display: inline-block;
+  height: 400px;
+  margin: 10px 10px 25px 10px;
   overflow: scroll;
+  width: 43%;
+}
+
+.table-titles {
+  display: inline;
+}
+
+.your-list {
+  border: 1px solid $orange;
+  display: inline-block;
+  height: 400px;
+  margin: 10px 10px 25px 10px;
+  overflow: scroll;
+  width: 43%;
 }
 
 .dropdown {
