@@ -11,9 +11,19 @@
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Walter+Turncoat" rel="stylesheet">
 </head>
 
 <body class="show container-fluid">
+  <div class="dropdown pull-right btn-lg logged-in">
+    <button class="dropbtn">   Menu   </button>
+      <div class="dropdown-content">
+        <a href="#" id="all-vegetables" class="logged-in"> View Your Vegetables </a><br/>
+        <a href="#" data-toggle="modal" data-target="#submit-change-password">Change Password</a><br/>
+        <a href="#" data-toggle="modal" data-target="#log-out"> Log-out </a>
+        <!-- <a href="#" data-target="#sign-out">sign out</a> -->
+      </div>
+  </div>
 <div class="login-screen">
   <div class="title-top conatiner">
     <br/>
@@ -25,6 +35,7 @@
     </div>
   </div>
 </div>
+
 <div class="login-buttons container">
   <div class="row">
     <br/>
@@ -40,20 +51,21 @@ Create Login
     </div>
   </div>
 </div>
+<div class="api-buttons btn-group container">
+  <div class="row col-sm-12 col-sm-offset-4">
+    <!-- <button id="all-vegetables" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#view-a-vegetable">View Vegetables</button> -->
+    <button type="button" class="show-buttons btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#add-a-vegetable">Add A Vegetable</button>
+    <div class="row col-sm-12">
+      <button id="update-rating" type="button" class="show-buttons btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#update-a-vegetable">Update Vegetable</button>
+      <button id="delete-my-vegetable" type="button" class="show-buttons btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#delete-a-vegetable">Delete Vegetable</button>
+    </div>
+  </div>
+</div>
 <div class="display">
-  <!-- <table class="table table-bordered table-responsive table-hover">
-    <thead>
-    <tr>
-      <th class="col-xs-1">Id</th>
-      <th class="col-xs-9">Name</th>
-      <th class="col-xs-1">Year</th>
-      <th class="col-xs-1">Rating</th>
-    </tr>
-  </thead>
-  </table> -->
-  <p class="display-list">
-logged in
-  </p>
+
+  <div class="display-list">
+
+  </div>
 
 </div>
 <!-- Modal for login -->
@@ -71,16 +83,16 @@ logged in
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="credentials[email]" class="form-control"
-                    id="exampleInputEmail1" placeholder="Email">
+                    id="exampleInputEmail1" placeholder="Email" value="a@a.com">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="credentials[password]" class="form-control"
-                    id="exampleInputPassword1" placeholder="Password">
+                    id="exampleInputPassword1" placeholder="Password" value="a">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" name="credentials[password]" class="form-control"
+                    <input type="password" name="credentials[password]" class="form-control"  value="a"
                     id="exampleInputPassword1" placeholder="Confirm Password">
                   </div>
                   <button id="submit" type="submit" class="btn btn-default">Submit</button>
@@ -186,7 +198,7 @@ logged in
   </div>
   <!-- buttons for log out and change password -->
 <footer class="footer">
-<div id="user-buttons" class="logout-buttons container">
+<!-- <div id="user-buttons" class="logout-buttons container">
   <div class="row">
     <div class="col-sm-12 col-sm-offset-4">
       <button type="button" class="logout-buttons btn btn-outline-danger btn-lg"
@@ -195,7 +207,7 @@ logged in
       data-toggle="modal" data-target="#submit-change-password">Change Password</button>
     </div>
   </div>
-</div>
+</div> -->
 <p class="signature">An app by Nicholas Piaskoski</p>
 </footer>
     </body>

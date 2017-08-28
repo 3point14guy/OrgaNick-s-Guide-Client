@@ -2,6 +2,8 @@
 
 body {
   background-color: $darkgreen;
+  font-family: 'Walter Turncoat', cursive;
+  // font-family: 'Cabin Sketch', cursive;
 }
 
 .login-screen {
@@ -15,7 +17,7 @@ body {
   bottom: 0;
   height: 60px;
   line-height: 60px;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 
@@ -24,10 +26,56 @@ body {
 }
 
 .display-list {
-  border: 1px solid $white;
+  border: 1px solid $orange;
   display: none;
-  height: 200px;
+  height: 350px;
   overflow: scroll;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropbtn {
+  background-color: $orange;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px rgba(0, 0, 0, .3);
+  color: $darkgreen;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 3px 0;
+  padding: 5px 9px;
+}
+
+.dropdown-content {
+  background-color: $orange;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  color: $darkgreen;
+  display: none;
+  min-width: 160px;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a:hover {
+  background-color: $darkgreen;
+  color: $orange;
+}
+
+// /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: inline-table;
+}
+
+// /* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: $orange;
+}
+
+.list {
+  list-style: none;
 }
 
 .api-buttons {
@@ -43,8 +91,13 @@ h1 {
   text-align: center;
 }
 
+.image {
+  border: 2px, solid, $white;
+}
+
 .instructions {
   color: $orange;
+  font-family: 'Walter Turncoat', cursive;
   font-size: 25px;
   margin: 2px auto 25px;
   text-align: center;
@@ -80,6 +133,7 @@ h1 {
 
 .title-top {
   color: $orange;
+  font-family: 'Cabin Sketch', cursive;
   // text-shadow: 3px 3px $black;
 }
 
