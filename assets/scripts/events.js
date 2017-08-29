@@ -35,13 +35,9 @@ const onLogout = function (event) {
 }
 const addVegetable = function (event) {
   event.preventDefault()
-  console.log('addVegetable event is', event)
-  api.addAVegetable()
-    // .then(function (data) {
-    //   $('.added').show()
-    //   $('.updated').hide()
-    //   $('.deleted').hide()
-    // })
+  const data = {garden: {'vegetable_id': $(event.target).attr('data-id')}}
+  console.log('data is ', data)
+  api.addAVegetable(data)
     .then(ui.addVegetableSuccess)
     .catch(ui.addVegetableFailure)
 }
@@ -78,10 +74,14 @@ const deleteVegetable = function (event) {
 //     .catch(ui.updateCommentFailure)
 // }
 
+// event default was thrwing error
 const getAllVegetables = function () {
   // event.preventDefault()
   api.requestAllVegetables()
     .then(ui.allVegetablesSuccess)
+    .then(function (data) {
+      $('.add-veggie-button').on('click', addVegetable)
+    })
     .catch(ui.allVegetableFailure)
 }
 
@@ -91,7 +91,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#logout').on('submit', onLogout)
   $('#all-vegetables').on('click', getAllVegetables)
-  $('#add-vegetable').on('click', addVegetable)
+  $('#add-veggie-button').on('click', addVegetable)
   $('#delete-vegetable').on('submit', deleteVegetable)
   // $('#update-a-rating').on('submit', updateComment)
 }

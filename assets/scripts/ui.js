@@ -1,6 +1,7 @@
 'use strict'
-const api = require('./api')
+// const api = require('./api')
 const store = require('./store')
+
 const displayVegetablesTemplate = require('./templates/vegetable-listing.handlebars')
 const displayGardenTemplate = require('./templates/your-garden-listing.handlebars')
 
@@ -8,6 +9,7 @@ const signUpSuccess = (data) => {
   $('.form-clear').trigger('reset')
   $('#submit-register').modal('hide')
 }
+
 const signInSuccess = (data) => {
   store.user = data.user
   $('.api-buttons').show(1700)
@@ -20,20 +22,20 @@ const signInSuccess = (data) => {
   // $('.logout-buttons').show(2100)
   $('#submit-login').modal('hide')
   $('.title-top').show()
-  $('#add-vegetable').on('click', addVegetable)
 }
-const addVegetable = function (event) {
-  event.preventDefault()
-  console.log('addVegetable event is', event)
-  api.addAVegetable()
-    // .then(function (data) {
-    //   $('.added').show()
-    //   $('.updated').hide()
-    //   $('.deleted').hide()
-    // })
-    .then(addVegetableSuccess)
-    .catch(addVegetableFailure)
-}
+
+// const addVegetable = function (event) {
+//   event.preventDefault()
+//   console.log('addVegetable event is', event)
+//   api.addAVegetable()
+//     // .then(function (data) {
+//     //   $('.added').show()
+//     //   $('.updated').hide()
+//     //   $('.deleted').hide()
+//     // })
+//     .then(addVegetableSuccess)
+//     .catch(addVegetableFailure)
+// }
 const signInFailure = (error) => {
   $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2000).fadeOut('slow').modal('hide')
 }
@@ -55,7 +57,7 @@ const allVegetablesSuccess = function (data) {
   $('.display-list').show()
   $('.display-list').empty()
   $('.display').show()
-  $('.instructions').text('Click Add to put vegetables your garden list or click on a link to see treatments.')
+  $('.instructions').text('Click Add to put vegetables in your garden list or click on a link to see treatments.')
   $('.show-buttons').show(300)
   $('.display-list').prepend(displayVegetablesHTML)
   $('api-buttons').show()
@@ -75,15 +77,16 @@ const deleteVegetableFailure = function (error) {
 }
 
 const addVegetableSuccess = function (data) {
-  store.vegetable = data.vegetable
-  const displayGardenHTML = displayGardenTemplate({ vegetables: data.vegetables })
-  $('.instructions').text('Vegetable successfully added.').fadeIn('fast').delay(2000).fadeOut('slow')
+  store.garden = data.garden
+  console.log('store.f=garden.vegetable is ', store.garden)
+  const displayGardenHTML = displayGardenTemplate({ vegetables: data.garden })
+  $('.instructions').text('Vegetable successfully added.')
+  $('.your-list').show()
+  $('.your-list').empty()
   $('.your-list').prepend(displayGardenHTML)
-
-  // would really love to run this here while maintaining separate files getAllVegetables()
 }
 const addVegetableFailure = function (error) {
-  $('.add-vegetable').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
+  $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const updateCommentSuccess = function (data) {

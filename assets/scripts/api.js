@@ -36,29 +36,19 @@ const logout = function () {
     }
   })
 }
+
+// gets a list of all vegetables currently in the db
 const requestAllVegetables = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/vegetables',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    method: 'GET'
   })
 }
 
-const deleteAVegetable = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/vegetables/' + data.id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
+// adds a vegetable to the user's garden
 const addAVegetable = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/vegetables',
+    url: config.apiOrigin + '/gardens',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -67,10 +57,20 @@ const addAVegetable = function (data) {
   })
 }
 
-// const updateAComment = function (vegetable) {
-//   const data = vegetable
+// const deleteAVegetable = function (data) {
 //   return $.ajax({
-//     url: config.apiOrigin + '/vegetables/' + vegetable.id,
+//     url: config.apiOrigin + '/gardens/' + data.id,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
+// adds a comment when the veggie is a plant in user's garden
+// const updateAComment = function (data) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/gardens/' + data,
 //     method: 'PATCH',
 //     headers: {
 //       Authorization: 'Token token=' + store.user.token
@@ -84,7 +84,7 @@ module.exports = {
   changePassword,
   logout,
   requestAllVegetables,
-  deleteAVegetable,
   addAVegetable
+  // deleteAVegetable,
   // updateAComment
 }
