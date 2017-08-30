@@ -57,15 +57,27 @@ const addAVegetable = function (data) {
   })
 }
 
-// const deleteAVegetable = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/gardens/' + data.id,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const deleteAVegetable = function (data) {
+  console.log('deleteAVegetable in api')
+  return $.ajax({
+    url: config.apiOrigin + '/gardens/' + data.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const requestGarden = function (data) {
+  console.log('requestGarden in api')
+  return $.ajax({
+    url: config.apiOrigin + '/gardens',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 // adds a comment when the veggie is a plant in user's garden
 // const updateAComment = function (data) {
@@ -84,7 +96,8 @@ module.exports = {
   changePassword,
   logout,
   requestAllVegetables,
-  addAVegetable
-  // deleteAVegetable,
+  requestGarden,
+  addAVegetable,
+  deleteAVegetable
   // updateAComment
 }

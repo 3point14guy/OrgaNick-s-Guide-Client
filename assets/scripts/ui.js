@@ -12,14 +12,12 @@ const signUpSuccess = (data) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  $('.api-buttons').show(1700)
+  $('.menu-button').show()
   $('.display').show()
-  $('.all-vegetables').show()
   $('.form-clear').trigger('reset')
   $('.instructions').show()
   $('.instructions').text(data.user.email + ' You have successfully logged in.')
   $('.login-buttons').hide(1700)
-  // $('.logout-buttons').show(2100)
   $('#submit-login').modal('hide')
   $('.title-top').show()
 }
@@ -81,8 +79,6 @@ const addVegetableSuccess = function (data) {
   console.log('store.f=garden.vegetable is ', store.garden)
   const displayGardenHTML = displayGardenTemplate({ vegetables: data.garden })
   $('.instructions').text('Vegetable successfully added.')
-  $('.your-list').show()
-  $('.your-list').empty()
   $('.your-list').prepend(displayGardenHTML)
 }
 const addVegetableFailure = function (error) {
@@ -97,6 +93,18 @@ const updateCommentSuccess = function (data) {
 const updateCommentFailure = function (error) {
   $('.update-a-comment').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
+
+const getGardenSuccess = function (data) {
+  console.log('getGardenSuccess', data)
+  store.vegetable = data.vegetable
+  console.log('store.garden. is ', store.vegetable)
+  const displayGardenHTML = displayGardenTemplate({ vegetables: data.vegetable })
+  $('.your-list').prepend(displayGardenHTML)
+}
+const getGardenFailure = function (data) {
+  console.log('getGardenFailure')
+}
+
 const logoutSuccess = function () {
   $('.api-buttons').hide()
   $('.form-clear').trigger('reset')
@@ -108,9 +116,6 @@ const logoutSuccess = function () {
   $('#log-out').modal('hide')
   $('.show-buttons').hide()
   $('#user-buttons').hide()
-  $('.added').hide()
-  $('.updated').hide()
-  $('.deleted').hide()
 }
 
 const logoutFailure = function (error) {
@@ -133,6 +138,8 @@ module.exports = {
   addVegetableSuccess,
   addVegetableFailure,
   updateCommentSuccess,
-  updateCommentFailure
+  updateCommentFailure,
+  getGardenSuccess,
+  getGardenFailure
 
 }
