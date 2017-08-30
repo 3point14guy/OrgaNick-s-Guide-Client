@@ -112,7 +112,15 @@ h1 {
 }
 
 .image {
-  border: 2px, solid, $white;
+  border: 2px, solid, $orange;
+  height: 150px;
+  width: 150px;
+}
+
+.thumbnail {
+  border: 2px, solid, $orange;
+  height: 150px;
+  width: 150px;
 }
 
 .instructions {

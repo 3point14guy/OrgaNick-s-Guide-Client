@@ -1,8 +1,22 @@
-{{#each vegetables as |vegetable|}}
+{{#each gardens as |garden|}}
+
+<div class="your-list">
+      <li><h3>{{garden.vegetable.name}}</h3></li>
+      <li><img class="thumbnail" src={{garden.vegetable.image}}></li>
+      <br/>
+      <li><textarea rows="4" cols="20">{{garden.vegetable.comment}}</textarea></li>
+      <br/>
+      <li><button data-id="{{garden.vegetable.id}}" class="update-comments-button dropbtn"> Edit Comments </button></li>
+      <li><button data-id="{{garden.vegetable.id}}" class="delete-veggie-button dropbtn"> Delete </button></li>
+</div>
+
+{{/each}}
+
+<!-- {{#each vegetables as |vegetable|}}
 
 <div class="your-list">
       <li><h3>{{vegetable.name}}</h3></li>
-      <li><img class="image" src={{vegetable.image}} height="150" width="150"></li>
+      <li><img class="thumbnail" src={{vegetable.image}}></li>
       <br/>
       <li><textarea rows="4" cols="20">{{vegetable.comment}}</textarea></li>
       <br/>
@@ -10,4 +24,4 @@
       <li><button data-id="{{vegetable.id}}" class="delete-veggie-button dropbtn"> Delete </button></li>
 </div>
 
-{{/each}}
+{{/each}} -->

@@ -1,5 +1,4 @@
 'use strict'
-// const api = require('./api')
 const store = require('./store')
 
 const displayVegetablesTemplate = require('./templates/vegetable-listing.handlebars')
@@ -8,6 +7,9 @@ const displayGardenTemplate = require('./templates/your-garden-listing.handlebar
 const signUpSuccess = (data) => {
   $('.form-clear').trigger('reset')
   $('#submit-register').modal('hide')
+}
+const signUpFailure = (error) => {
+  $('.sign-up-message').text('There was an error creating the account. ', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const signInSuccess = (data) => {
@@ -21,24 +23,8 @@ const signInSuccess = (data) => {
   $('#submit-login').modal('hide')
   $('.title-top').show()
 }
-
-// const addVegetable = function (event) {
-//   event.preventDefault()
-//   console.log('addVegetable event is', event)
-//   api.addAVegetable()
-//     // .then(function (data) {
-//     //   $('.added').show()
-//     //   $('.updated').hide()
-//     //   $('.deleted').hide()
-//     // })
-//     .then(addVegetableSuccess)
-//     .catch(addVegetableFailure)
-// }
 const signInFailure = (error) => {
   $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2000).fadeOut('slow').modal('hide')
-}
-const signUpFailure = (error) => {
-  $('.sign-up-message').text('There was an error creating the account. ', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const passwordChangeSuccess = function () {
@@ -49,6 +35,7 @@ const passwordChangeSuccess = function () {
 const passwordChangeFailure = function (error) {
   $('.change-pswrd-message').text('Password change failed.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
+
 const allVegetablesSuccess = function (data) {
   store.vegetable = data.vegetable
   const displayVegetablesHTML = displayVegetablesTemplate({ vegetables: data.vegetables })
@@ -60,46 +47,41 @@ const allVegetablesSuccess = function (data) {
   $('.display-list').prepend(displayVegetablesHTML)
   $('api-buttons').show()
 }
-
 const allVegetablesFailure = function (error) {
   $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const deleteVegetableSuccess = function () {
   $('.instructions').text('Vegetable successfully deleted.')
-  // $('.form-clear').trigger('reset')
-  // $('#delete-a-vegetable').modal('hide')
 }
 const deleteVegetableFailure = function (error) {
   $('.delete-vegetable').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const addVegetableSuccess = function (data) {
-  store.garden = data.garden
-  console.log('store.f=garden.vegetable is ', store.garden)
+  console.log('in addVegetableSuccess, data.garden is ', data.garden)
   const displayGardenHTML = displayGardenTemplate({ vegetables: data.garden })
   $('.instructions').text('Vegetable successfully added.')
-  $('.your-list').prepend(displayGardenHTML)
+  $('.your-list').html(displayGardenHTML)
+  $('.your-list').show()
 }
 const addVegetableFailure = function (error) {
   $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const updateCommentSuccess = function (data) {
-  $('.instructions').text('Your vegetable update was successful.')
-  // $('.form-clear').trigger('reset')
-  // $('#update-a-vegetable').modal('hide')
+  $('.instructions').text('Your comment update was successful.')
 }
 const updateCommentFailure = function (error) {
   $('.update-a-comment').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const getGardenSuccess = function (data) {
-  console.log('getGardenSuccess', data)
-  store.vegetable = data.vegetable
-  console.log('store.garden. is ', store.vegetable)
-  const displayGardenHTML = displayGardenTemplate({ vegetables: data.vegetable })
-  $('.your-list').prepend(displayGardenHTML)
+  console.log('getGardenSuccess data is ', data.gardens)
+  const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
+  $('.your-list').empty()
+  $('.your-list').append(displayGardenHTML)
+  $('.your-list').show()
 }
 const getGardenFailure = function (data) {
   console.log('getGardenFailure')
