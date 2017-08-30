@@ -61,21 +61,17 @@ const deleteVegetable = function (event) {
     .catch(ui.deleteVegetableFailure)
 }
 
-// const updateComment = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(this)
-//   api.updateAComment(data)
-//     .then(function (data) {
-//       $('.form-clear').trigger('reset')
-//       $('#update-a-vegetable').modal('hide')
-//       $('.updated').show()
-//       $('.added').hide()
-//       $('.deleted').hide()
-//       getAllVegetables()
-//     })
-//     .then(ui.updateCommentSuccess)
-//     .catch(ui.updateCommentFailure)
-// }
+const updateComments = function (event) {
+  event.preventDefault()
+  const data = {vegetable: { 'name': $(event.target).attr('data-name'), 'image': $(event.target).attr('data-image'), 'comments': $(event.target).attr('data-comments') }}
+  console.log("{garden: {'id': $(event.target).attr('data-id')}} is ", {garden: {'id': $(event.target).attr('data-id')}})
+  api.updateAComment(data)
+    .then(function (data) {
+      getGarden()
+    })
+    .then(ui.updateCommentsSuccess)
+    .catch(ui.updateCommentsFailure)
+}
 
 // event default was throwing error
 const getAllVegetables = function () {
@@ -95,8 +91,8 @@ const getGarden = function (data) {
     .then(ui.getGardenSuccess)
     .then(function (data) {
       $('.delete-veggie-button').on('click', deleteVegetable)
+      $('.update-comments-button').on('click', updateComments)
     })
-      // $('.update-comments-button').on('click', updateComments)
     .catch(ui.getGardenFailure)
 }
 
@@ -105,7 +101,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#logout').on('submit', onLogout)
-  // $('#all-vegetables').on('click', getAllVegetables)
 }
 
 module.exports = {
