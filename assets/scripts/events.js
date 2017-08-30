@@ -52,7 +52,7 @@ const deleteVegetable = function (event) {
   console.log('deleteVegetable in events')
   event.preventDefault()
   const data = $(event.target).attr('data-id')
-  console.log('delete vegetable event')
+  console.log("$(event.target).attr('data-id') is ", $(event.target).attr('data-id'))
   api.deleteAVegetable(data)
     .then(function (data) {
       getGarden()

@@ -60,7 +60,7 @@ const addAVegetable = function (data) {
 const deleteAVegetable = function (data) {
   console.log('deleteAVegetable in api')
   return $.ajax({
-    url: config.apiOrigin + '/gardens/' + data.id,
+    url: config.apiOrigin + '/gardens/' + data,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
