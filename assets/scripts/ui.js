@@ -59,10 +59,10 @@ const deleteVegetableFailure = function (error) {
 }
 
 const addVegetableSuccess = function (data) {
-  console.log('in addVegetableSuccess, data.garden is ', data.garden)
-  const displayGardenHTML = displayGardenTemplate({ vegetables: data.garden })
+  console.log('in addVegetableSuccess, data.gardens is ', data.gardens)
+  const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
   $('.instructions').text('Vegetable successfully added.')
-  $('.your-list').html(displayGardenHTML)
+  $('.your-list').prepend(displayGardenHTML)
   $('.your-list').show()
 }
 const addVegetableFailure = function (error) {

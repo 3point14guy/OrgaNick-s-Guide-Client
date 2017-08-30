@@ -41,6 +41,7 @@ const addVegetable = function (event) {
   api.addAVegetable(data)
     .then(ui.addVegetableSuccess)
     .then(function (data) {
+      getGarden()
       $('#delete-vegetable').on('submit', deleteVegetable)
       console.log('delete-vegetable handler reached')
     })
