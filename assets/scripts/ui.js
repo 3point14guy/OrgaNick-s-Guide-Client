@@ -59,20 +59,20 @@ const deleteVegetableFailure = function (error) {
 }
 
 const addVegetableSuccess = function (data) {
-  console.log('in addVegetableSuccess, data.garden is ', data.garden)
-  const displayGardenHTML = displayGardenTemplate({ vegetables: data.garden })
+  console.log('in addVegetableSuccess, data.gardens is ', data.gardens)
+  const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
   $('.instructions').text('Vegetable successfully added.')
-  $('.your-list').html(displayGardenHTML)
+  $('.your-list').prepend(displayGardenHTML)
   $('.your-list').show()
 }
 const addVegetableFailure = function (error) {
   $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
-const updateCommentSuccess = function (data) {
+const updateCommentsSuccess = function (data) {
   $('.instructions').text('Your comment update was successful.')
 }
-const updateCommentFailure = function (error) {
+const updateCommentsFailure = function (error) {
   $('.update-a-comment').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
@@ -119,8 +119,8 @@ module.exports = {
   deleteVegetableFailure,
   addVegetableSuccess,
   addVegetableFailure,
-  updateCommentSuccess,
-  updateCommentFailure,
+  updateCommentsSuccess,
+  updateCommentsFailure,
   getGardenSuccess,
   getGardenFailure
 
