@@ -81,12 +81,14 @@ const requestGarden = function (data) {
 
 // adds a comment when the veggie is a plant in user's garden
 const updateAComment = function (data) {
+  console.log('data is ', data)
   return $.ajax({
-    url: config.apiOrigin + '/vegetables/' + data.id,
+    url: config.apiOrigin + '/gardens/' + data.garden.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: data
   })
 }
 

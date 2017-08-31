@@ -3,6 +3,7 @@ const store = require('./store')
 
 const displayVegetablesTemplate = require('./templates/vegetable-listing.handlebars')
 const displayGardenTemplate = require('./templates/your-garden-listing.handlebars')
+const displayPestsTemplate = require('./templates/dinner-and-diners.handlebars')
 
 const signUpSuccess = (data) => {
   $('.form-clear').trigger('reset')
@@ -39,12 +40,14 @@ const passwordChangeFailure = function (error) {
 const allVegetablesSuccess = function (data) {
   store.vegetable = data.vegetable
   const displayVegetablesHTML = displayVegetablesTemplate({ vegetables: data.vegetables })
+  const displayPestsHTML = displayPestsTemplate({ dinner_and_diners: data.dinner_and_diners })
   $('.display-list').show()
   $('.display-list').empty()
   $('.display').show()
   $('.instructions').text('Click Add to put vegetables in your garden list or click on a link to see treatments.')
   $('.show-buttons').show(300)
   $('.display-list').prepend(displayVegetablesHTML)
+  $('.display-pests').prepend(displayPestsHTML)
   $('api-buttons').show()
 }
 const allVegetablesFailure = function (error) {
@@ -77,7 +80,7 @@ const updateCommentsFailure = function (error) {
 }
 
 const getGardenSuccess = function (data) {
-  console.log('getGardenSuccess data is ', data.gardens)
+  console.log('data.gardens is ', data.gardens)
   const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
   $('.your-list').empty()
   $('.your-list').append(displayGardenHTML)
@@ -98,6 +101,7 @@ const logoutSuccess = function () {
   $('#log-out').modal('hide')
   $('.show-buttons').hide()
   $('#user-buttons').hide()
+  $('.menu-button').hide()
 }
 
 const logoutFailure = function (error) {

@@ -15,13 +15,15 @@
 </head>
 
 <body class="show container-fluid">
-  <div class="menu-button dropdown pull-right btn-lg">
+  <div class="col-sm-1 col-sm-offset-10">
+  <div class="menu-button dropdown btn-lg">
     <button class="menu-button dropbtn">   Menu   </button>
       <div class="dropdown-content">
         <a href="#" data-toggle="modal" data-target="#submit-change-password">Change Password</a><br/>
         <a href="#" data-toggle="modal" data-target="#log-out"> Log-out </a>
         <!-- <a href="#" data-target="#sign-out">sign out</a> -->
       </div>
+    </div>
   </div>
 <div class="login-screen">
   <div class="title-top conatiner">
@@ -61,18 +63,24 @@ Create Login
   </div>
 </div> -->
 <div class="display">
-  <div class="table-titles">
-    <h4> Nick's garden.</h4>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4 class="table-titles"> Nick's garden.</h4>
+    </div>
+    <div class="col-sm-6">
+      <h4>Your garden.</h4>
+    </div>
   </div>
-  <div class="display">
-    <h4> Your garden.</h4>
+  <div class="row">
+    <div class="display-list col-sm-6">
+      <div class="row">
+    <div class="display-pests col-sm-3">
+      </div>
+      </div>
+    </div>
+    <div class="your-list">
   </div>
-  <div class="display-list">
-
-  </div>
-  <div class="your-list">
-  </div>
-
+</div>
 </div>
 <!-- Modal for login -->
         <div class="modal fade" id="submit-login" tabindex="-1" role="dialog"
