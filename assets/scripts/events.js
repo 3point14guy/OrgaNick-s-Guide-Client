@@ -49,7 +49,6 @@ const addVegetable = function (event) {
 }
 
 const deleteVegetable = function (event) {
-  console.log('deleteVegetable in events')
   event.preventDefault()
   const data = $(event.target).attr('data-id')
   console.log("$(event.target).attr('data-id') is ", $(event.target).attr('data-id'))
@@ -63,9 +62,9 @@ const deleteVegetable = function (event) {
 
 const updateComments = function (event) {
   event.preventDefault()
-  const data = {vegetable: { 'name': $(event.target).attr('data-name'), 'image': $(event.target).attr('data-image'), 'comments': $(event.target).attr('data-comments') }}
-  console.log("{garden: {'id': $(event.target).attr('data-id')}} is ", {garden: {'id': $(event.target).attr('data-id')}})
-  api.updateAComment(data)
+  const textAreaVal = $(event.target).closest('div').find('textarea').val()
+  const gardenData = {garden: { 'id': $(event.target).attr('data-id'), 'comments': textAreaVal }}
+  api.updateAComment(gardenData)
     .then(function (data) {
       getGarden()
     })
