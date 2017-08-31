@@ -77,7 +77,7 @@ const updateCommentsFailure = function (error) {
 }
 
 const getGardenSuccess = function (data) {
-  console.log('getGardenSuccess data is ', data.gardens)
+  console.log('data.gardens is ', data.gardens)
   const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
   $('.your-list').empty()
   $('.your-list').append(displayGardenHTML)
@@ -98,6 +98,7 @@ const logoutSuccess = function () {
   $('#log-out').modal('hide')
   $('.show-buttons').hide()
   $('#user-buttons').hide()
+  $('.menu-button').hide()
 }
 
 const logoutFailure = function (error) {
