@@ -60,7 +60,7 @@ const deleteVegetable = function (event) {
 
 const updateComments = function (event) {
   event.preventDefault()
-  const textAreaVal = $(event.target).closest('div').find('textarea').val()
+  const textAreaVal = $(event.delegateTarget).parents('li').siblings('.theseComments').children('textarea').val()
   const gardenData = {garden: { 'id': $(event.target).attr('data-id'), 'comments': textAreaVal }}
   api.updateAComment(gardenData)
     .then(function (data) {
@@ -102,6 +102,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#logout').on('submit', onLogout)
+  // $('#user-comments').on('submit', updateComments)
 }
 
 module.exports = {
