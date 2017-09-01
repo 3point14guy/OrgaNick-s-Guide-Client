@@ -42,6 +42,10 @@ body {
   margin: 0 10px;
 }
 
+ul {
+  list-style: none;
+}
+
 .your-list {
   border: 1px solid $orange;
   display: inline-block;
@@ -111,7 +115,7 @@ h1 {
   text-align: center;
 }
 
-.image {
+img {
   border: 2px, solid, $orange;
   height: 150px;
   width: 150px;
