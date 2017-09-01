@@ -62,7 +62,6 @@ const deleteVegetableFailure = function (error) {
 }
 
 const addVegetableSuccess = function (data) {
-  console.log('in addVegetableSuccess, data.gardens is ', data.gardens)
   const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
   $('.instructions').text('Vegetable successfully added.')
   $('.your-list').prepend(displayGardenHTML)
@@ -87,7 +86,6 @@ const getGardenSuccess = function (data) {
   $('.your-list').show()
 }
 const getGardenFailure = function (data) {
-  console.log('getGardenFailure')
 }
 
 const logoutSuccess = function () {

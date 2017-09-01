@@ -35,7 +35,6 @@ const onLogout = function (event) {
     .catch(ui.logoutFailure)
 }
 const addVegetable = function (event) {
-  console.log('addVegetable in events')
   event.preventDefault()
   const data = {garden: {'vegetable_id': $(event.target).attr('data-id')}}
   api.addAVegetable(data)
@@ -43,7 +42,6 @@ const addVegetable = function (event) {
     .then(function (data) {
       getGarden()
       $('#delete-vegetable').on('submit', deleteVegetable)
-      console.log('delete-vegetable handler reached')
     })
     .catch(ui.addVegetableFailure)
 }
@@ -51,7 +49,6 @@ const addVegetable = function (event) {
 const deleteVegetable = function (event) {
   event.preventDefault()
   const data = $(event.target).attr('data-id')
-  console.log("$(event.target).attr('data-id') is ", $(event.target).attr('data-id'))
   api.deleteAVegetable(data)
     .then(function (data) {
       getGarden()
@@ -74,7 +71,6 @@ const updateComments = function (event) {
 
 // event default was throwing error
 const getAllVegetables = function () {
-  console.log('getAllVegetables in events')
   // event.preventDefault()
   api.requestAllVegetables()
     .then(ui.allVegetablesSuccess)
@@ -85,7 +81,7 @@ const getAllVegetables = function () {
 }
 
 const getGarden = function (data) {
-  console.log('getGarden in events')
+  console.log('getGarden in events. data is ', data)
   api.requestGarden(data)
     .then(ui.getGardenSuccess)
     .then(function (data) {

@@ -58,7 +58,6 @@ const addAVegetable = function (data) {
 }
 
 const deleteAVegetable = function (data) {
-  console.log('deleteAVegetable in api')
   return $.ajax({
     url: config.apiOrigin + '/gardens/' + data,
     method: 'DELETE',
