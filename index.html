@@ -52,35 +52,27 @@ Create Login
     </div>
   </div>
 </div>
-<!-- <div class="api-buttons btn-group container">
-  <div class="row col-sm-12 col-sm-offset-9">
-    <button id="all-vegetables" type="button" class="dropbtn btn-info btn-lg" data-toggle="modal" data-target="#view-a-vegetable">View Your List</button>
-    <button type="button" class="show-buttons dropbtn btn-outline-primary btn-lg" data-toggle="modal" data-target="#add-a-vegetable">Add A Vegetable</button>
-    <div class="row col-sm-12">
-      <button id="update-rating" type="button" class="show-buttons dropbtn btn-outline-warning btn-lg" data-toggle="modal" data-target="#update-a-vegetable">Update Vegetable</button>
-      <button id="delete-my-vegetable" type="button" class="show-buttons dropbtn btn-outline-danger btn-lg" data-toggle="modal" data-target="#delete-a-vegetable">Delete Vegetable</button>
-    </div>
-  </div>
-</div> -->
+
 <div class="display">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <h4 class="table-titles"> Nick's garden.</h4>
     </div>
-    <div class="col-sm-6">
-      <h4>Your garden.</h4>
+    <div class="col-sm-4">
+      <h4 class="table-titles"> Pest List.</h4>
+    </div>
+    <div class="col-sm-4">
+      <h4 class="table-titles">Your garden.</h4>
     </div>
   </div>
   <div class="row">
-    <div class="display-list col-sm-6">
-      <div class="row">
-    <div class="display-pests col-sm-3">
-      </div>
-      </div>
+    <div class="display-list col-sm-4">
     </div>
-    <div class="your-list">
+    <div class="pest-list col-sm-4">
+    </div>
+    <div class="your-list col-sm-4">
+    </div>
   </div>
-</div>
 </div>
 <!-- Modal for login -->
         <div class="modal fade" id="submit-login" tabindex="-1" role="dialog"
@@ -97,16 +89,16 @@ Create Login
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="credentials[email]" class="form-control"
-                    id="exampleInputEmail1" placeholder="Email" value="a@a.com">
+                    id="exampleInputEmail1" placeholder="Email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="credentials[password]" class="form-control"
-                    id="exampleInputPassword1" placeholder="Password" value="a">
+                    id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" name="credentials[password]" class="form-control"  value="a"
+                    <input type="password" name="credentials[password]" class="form-control"
                     id="exampleInputPassword1" placeholder="Confirm Password">
                   </div>
                   <button id="submit" type="submit" class="btn btn-default">Submit</button>
