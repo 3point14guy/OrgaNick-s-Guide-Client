@@ -43,7 +43,7 @@ const allVegetablesSuccess = function (data) {
   $('.display-list').show()
   $('.display-list').empty()
   $('.display').show()
-  $('.instructions').text('Click Add to put vegetables in your garden list or click on a link to see treatments.')
+  $('.instructions').text('Click Add to put vegetables in your garden list.')
   $('.show-buttons').show(300)
   $('.display-list').prepend(displayVegetablesHTML)
   $('api-buttons').show()
@@ -79,7 +79,7 @@ const updateCommentsFailure = function (error) {
 const getGardenSuccess = function (data) {
   const displayGardenHTML = displayGardenTemplate({ gardens: data.gardens })
   $('.your-list').empty()
-  $('.your-list').append(displayGardenHTML)
+  $('.your-list').prepend(displayGardenHTML)
   $('.your-list').show()
 }
 const getGardenFailure = function (data) {

@@ -1,13 +1,15 @@
 <div>
   {{#each gardens as |garden|}}
     {{#if this.user}}
+    <div>
       <li><h3>{{garden.vegetable.name}}</h3></li>
       <li><img class="thumbnail" src={{garden.vegetable.image}}></li>
       <br/>
-      <li><textarea rows="4" cols="20" data-commnets="{{garden.comments}}">{{garden.comments}}</textarea></li>
+      <li class="theseComments"><textarea class="commentsData" rows="4" cols="20" data-comments="{{garden.comments}}">{{garden.comments}}</textarea></li>
       <br/>
-      <li><button data-id="{{garden.id}}" class="update-comments-button dropbtn"> Edit Comments </button></li>
+      <li><button  data-target="register-comments" data-id="{{garden.id}}" class="update-comments-button dropbtn"> Edit Comments </button></li>
       <li><button data-id="{{garden.id}}" class="delete-veggie-button dropbtn"> Delete </button></li>
+    </div>
     {{/if}}
 {{/each}}
 </div>
