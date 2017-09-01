@@ -19,6 +19,7 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then(getAllVegetables)
     .then(getGarden)
+    .then(getAllPests)
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
@@ -81,7 +82,6 @@ const getAllVegetables = function () {
 }
 
 const getGarden = function (data) {
-  console.log('getGarden in events. data is ', data)
   api.requestGarden(data)
     .then(ui.getGardenSuccess)
     .then(function (data) {
@@ -89,6 +89,12 @@ const getGarden = function (data) {
       $('.update-comments-button').on('click', updateComments)
     })
     .catch(ui.getGardenFailure)
+}
+
+const getAllPests = function () {
+  api.requestPests()
+  .then(ui.allPestsSuccess)
+  .catch(ui.allPestsFailure)
 }
 
 const addHandlers = () => {

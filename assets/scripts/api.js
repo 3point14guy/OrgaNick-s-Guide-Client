@@ -89,6 +89,13 @@ const updateAComment = function (data) {
   })
 }
 
+const requestPests = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/pests',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -98,5 +105,6 @@ module.exports = {
   requestGarden,
   addAVegetable,
   deleteAVegetable,
-  updateAComment
+  updateAComment,
+  requestPests
 }
