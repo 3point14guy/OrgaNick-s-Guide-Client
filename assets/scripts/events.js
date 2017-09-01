@@ -59,14 +59,20 @@ const deleteVegetable = function (event) {
 
 const updateComments = function (event) {
   event.preventDefault()
-  const textAreaVal = $(event.target).closest('div').find('textarea').val()
-  const gardenData = {garden: { 'id': $(event.target).attr('data-id'), 'comments': textAreaVal }}
-  api.updateAComment(gardenData)
+  let textAreaVal
+  if (textAreaVal === undefined) {
+    return
+  } else {
+    textAreaVal = $(event.target).closest('div').find('textarea').val()
+    const gardenData = {garden: { 'id': $(event.target).attr('data-id'), 'comments': textAreaVal }}
+    api.updateAComment(gardenData)
     .then(function (data) {
       getGarden()
+      textAreaVal = undefined
     })
     .then(ui.updateCommentsSuccess)
     .catch(ui.updateCommentsFailure)
+  }
 }
 
 // event default was throwing error
