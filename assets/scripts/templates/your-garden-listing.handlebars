@@ -2,6 +2,7 @@
   {{#each gardens as |garden|}}
     {{#if this.user}}
     <div>
+      <ul class="list">
       <li><h3>{{garden.vegetable.name}}</h3></li>
       <li><img class="thumbnail" src={{garden.vegetable.image}}></li>
       <br/>
@@ -9,6 +10,7 @@
       <br/>
       <li><button  data-target="register-comments" data-id="{{garden.id}}" class="update-comments-button dropbtn"> Edit Comments </button></li>
       <li><button data-id="{{garden.id}}" class="delete-veggie-button dropbtn"> Delete </button></li>
+      </ul>
     </div>
     {{/if}}
 {{/each}}
