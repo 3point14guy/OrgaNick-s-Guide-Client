@@ -1,10 +1,13 @@
 'use strict'
-
+// file allows for getting inout typed into forms by users
 const getFormFields = require(`../../lib/get-form-fields`)
-
+// getting access to other files in tree using const name
 const api = require('./api')
 const ui = require('./ui')
-
+// when user finishes sign-up process, initiate api/ajax call
+// prevent default keeps page from refreshing when user selects submit
+// .then is what should happen next
+// .catch handles any errors that occur while runnning this function
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -12,6 +15,8 @@ const onSignUp = function (event) {
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
+
+// the .then statements here call functions to make api/ajax calls for the vegetables, Garden, and pests resources
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -35,6 +40,8 @@ const onLogout = function (event) {
     .then(ui.logoutSuccess)
     .catch(ui.logoutFailure)
 }
+// assigning data to be the id specified when selecting the button under that id
+// $()handler is called after the vegetables resource is loaded on the page
 const addVegetable = function (event) {
   event.preventDefault()
   const data = {garden: {'vegetable_id': $(event.target).attr('data-id')}}
@@ -57,7 +64,7 @@ const deleteVegetable = function (event) {
     .then(ui.deleteVegetableSuccess)
     .catch(ui.deleteVegetableFailure)
 }
-
+// assigning the data that should be passed to the PATCH request using the values that are closest to the buttons being selected and fields for which data is being entered
 const updateComments = function (event) {
   event.preventDefault()
   const textAreaVal = $(event.delegateTarget).parents('li').siblings('.theseComments').children('textarea').val()
@@ -70,7 +77,8 @@ const updateComments = function (event) {
     .catch(ui.updateCommentsFailure)
 }
 
-// event default was throwing error
+// commented out event default that was throwing error
+// handler added here so that it is available after resource data loads
 const getAllVegetables = function () {
   // event.preventDefault()
   api.requestAllVegetables()
@@ -96,13 +104,12 @@ const getAllPests = function () {
   .then(ui.allPestsSuccess)
   .catch(ui.allPestsFailure)
 }
-
+// handlers for buttons on page
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#logout').on('submit', onLogout)
-  // $('#user-comments').on('submit', updateComments)
 }
 
 module.exports = {
