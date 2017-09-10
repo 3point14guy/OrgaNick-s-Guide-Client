@@ -15,3 +15,12 @@
     {{/if}}
 {{/each}}
 </div>
+
+<!-- #each will follow the code inside it for each value in the gardens table
+#if will only deiplay when the current user is logged in
+this data will be displayed in an unodered list
+gardens is a join table, can access data in the vegetables table through chaining: garden.vegetable.name
+class theseComments is there to help target the user entered comments
+gardens.comments is a new column in the gardens table
+data- tag specifies what values will be passsed in ajax requests
+class names on buttons allow for unique commands based on which button is selected -->
