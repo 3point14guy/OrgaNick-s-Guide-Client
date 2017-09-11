@@ -1,66 +1,44 @@
-@import 'colors'; // moves variables over from colors.scss file
+// moves variables over from colors.scss file
+@import 'colors';
 
+// set default background-color and font for the page
 body {
   background-color: $darkgreen;
   font-family: 'Walter Turncoat', cursive;
-  // font-family: 'Cabin Sketch', cursive;
 }
 
-.login-screen {
-  // background: url('../img/theater.jpg') no-repeat;
-  // background-size: cover;
-  // height: 675px;
-  // width: auto;
+// increase text size to 65 pixels for h1 elements
+h1 {
+  font-size: 65px;
+  text-align: center;
 }
 
-.menu-button {
-  display: none;
+// set image display size to a square 150 pixels on a side
+// give the image a solid, yellow border 2 pixels wide
+img {
+  border: 2px, solid, $yellow;
+  height: 150px;
+  width: 150px;
 }
 
-.footer {
-  bottom: 0;
-  height: 60px;
-  line-height: 60px;
-  position: fixed;
-  width: 100%;
-}
-
+// items in the display class will be hidden until user logs in
 .display {
   display: none;
 }
 
-.display-list {
-  border: 1px solid $orange;
-  display: inline-block;
-  height: 500px;
-  margin: 10px 10px 25px;
-  overflow: scroll;
-  width: 31%;
-}
-
-.table-titles {
-  margin: 0 10px;
-}
-
-ul {
-  list-style: none;
-}
-
+// these 3 containers will be identical
+// solid yellow border 1 pixel wide for border
+// these 3 containers will be displayed one after another
+// container height will be 500 pixels
+// a margin, larger at the bottom, will be kept around the container
+// if content of the container overflows, a scroll bar will become available
+// width of the container will be set to 31% of the display screen size
+.display-list,
+.pest-list,
 .your-list {
-  border: 1px solid $orange;
+  border: 1px solid $yellow;
   display: inline-block;
   height: 500px;
-  list-style: none;
-  margin: 10px 10px 25px;
-  overflow: scroll;
-  width: 31%;
-}
-
-.pest-list {
-  border: 1px solid $orange;
-  display: inline-block;
-  height: 500px;
-  list-style: none;
   margin: 10px 10px 25px;
   overflow: scroll;
   width: 31%;
@@ -71,8 +49,18 @@ ul {
   position: relative;
 }
 
+// style of dropdown menu button
+// color is yellow
+// no border on button
+// corners of button rounded
+// transparent shadow on button **scss does not like rgba
+// color of text is green
+// cursor on buton and elements will de displayed as a pointer
+// size of text will be 14 pixels high
+// small amount of  margin
+// padding added between button text and edge
 .dropbtn {
-  background-color: $orange;
+  background-color: $yellow;
   border: 0;
   border-radius: 10px;
   box-shadow: 3px 3px rgba(0, 0, 0, .3);
@@ -83,8 +71,9 @@ ul {
   padding: 5px 9px;
 }
 
+// display of dropdown-content when user mouses over menu button
 .dropdown-content {
-  background-color: $orange;
+  background-color: $yellow;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   color: $darkgreen;
   display: none;
@@ -93,93 +82,63 @@ ul {
   z-index: 1;
 }
 
+// display when mouse over dropdown content from menu button
 .dropdown-content a:hover {
   background-color: $darkgreen;
-  color: $orange;
+  color: $yellow;
 }
 
-// /* Show the dropdown menu on hover */
+// Shows the dropdown menu on hover
 .dropdown:hover .dropdown-content {
   display: inline-table;
 }
 
-// /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: $orange;
+// size and position of footer
+.footer {
+  bottom: 0;
+  height: 60px;
+  line-height: 60px;
+  position: fixed;
+  width: 100%;
 }
 
-.list {
-  list-style: none;
-}
-
-.api-buttons {
-  display: none;
-}
-
-.show-buttons {
-  display: none;
-}
-
-h1 {
-  font-size: 65px;
-  text-align: center;
-}
-
-img {
-  border: 2px, solid, $orange;
-  height: 150px;
-  width: 150px;
-}
-
-.thumbnail {
-  border: 2px, solid, $orange;
-  height: 150px;
-  width: 150px;
-}
-
+// the container with the instructions class
+// text centered on page
 .instructions {
-  color: $orange;
+  color: $yellow;
   font-family: 'Walter Turncoat', cursive;
   font-size: 25px;
   margin: 2px auto 25px;
   text-align: center;
-  // text-shadow: 2px 2px $black;
 }
 
-.added {
-  display: none;
-  font-size: 25px;
-  text-align: center;
+// removes default dots in front of list elements
+.list {
+  list-style: none;
 }
 
-.updated {
-  display: none;
-  font-size: 25px;
-  text-align: center;
-}
-
-.deleted {
-  display: none;
-  font-size: 25px;
-  text-align: center;
-}
-
-.logout-buttons {
+// saving for future use
+// .login-screen {
+// }
+// menu button will start off not being displayed until user logs in
+.menu-button {
   display: none;
 }
 
+// elements with signature class will be yellow, 25 pixels high and centerd on the page
 .signature {
-  color: $orange;
+  color: $yellow;
   font-size: 25px;
   text-align: center;
 }
 
-.title-top {
-  color: $orange;
-  font-family: 'Cabin Sketch', cursive;
-  // text-shadow: 3px 3px $black;
+// setting position of table headers
+.table-titles {
+  margin: 0 10px;
 }
 
-button {
-  margin: 10px 30px;
+// the container with the title-top class will have text in yellow Cabin Sketh font
+.title-top {
+  color: $yellow;
+  font-family: 'Cabin Sketch', cursive;
 }
