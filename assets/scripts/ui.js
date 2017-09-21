@@ -30,7 +30,7 @@ const signInSuccess = (data) => {
   $('.login-buttons').hide(1700)
   $('#submit-login').modal('hide')
   $('.title-top').show()
-  // $('.bugCarousel').hide()
+  $('.bugCarousel').hide()
 }
 const signInFailure = (error) => {
   $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2000).fadeOut('slow').modal('hide')
@@ -116,7 +116,7 @@ const logoutSuccess = function () {
   $('.login-screen').show()
   $('#log-out').modal('hide')
   $('.menu-button').hide()
-  // $('.bugCarousel').show()
+  $('.bugCarousel').show()
 }
 
 const logoutFailure = function (error) {
