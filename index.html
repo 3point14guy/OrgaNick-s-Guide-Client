@@ -1,0 +1,254 @@
+<!-- tells browser this is going to be an html doc -->
+<!DOCTYPE html>
+<!-- tells browser this is where html code starts -->
+<html>
+<!-- tells browser this is where the head content starts; special instructions that will aply to the rest of the document -->
+
+<head>
+  <!-- the labael the will display on the browser page -->
+  <title>OrgaNick's Guide</title>
+  <!-- code for responsive design based on screen size -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- instructions from template: Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!--instructions from template: Do not add `script` tags unless you know what you are doing -->
+  <!-- tags for runing files with this doc -->
+
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <!-- allowing for use of fonts from google -->
+
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Luckiest+Guy|Walter+Turncoat" rel="stylesheet">
+</head>
+
+<!-- below is where more exacting control of page elements is executed -->
+<!-- using Bootstrap to help build modals and buttons -->
+<!-- this is the menu button on thetop right which is going to dropdown on mouse over and display two 'link' options -->
+<!-- using bootstrap classes and column widths for format -->
+<body class="show container-fluid">
+  <div class="col-sm-1 col-sm-offset-10">
+    <div class="menu-button dropdown btn-lg">
+      <button class="menu-button dropbtn">   Menu   </button>
+      <div class="dropdown-content">
+        <a data-toggle="modal" data-target="#submit-change-password">Change Password</a><br/>
+        <a data-toggle="modal" data-target="#log-out"> Log-out </a>
+      </div>
+    </div>
+  </div>
+<!-- container for the logo and tag line -->
+  <div class="login-screen">
+    <div class="title-top conatiner">
+      <br/>
+      <h1>OrgaNick's Guide</h1>
+      <div class="row">
+        <div class="col-xs-12 box">
+          <p class="instructions">An app that helps you fight vegetable pests organically.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- container holding buttons on page prior to login -->
+  <div class="login-buttons container">
+    <div class="row">
+      <br/>
+      <div class="col-sm-12 col-sm-offset-5">
+        <button type="button" class="dropbtn btn-outline-secondary btn-lg" data-toggle="modal" data-target="#submit-login">
+  Login
+</button>
+        <button type="button" class="dropbtn btn-outline-primary btn-lg" data-toggle="modal" data-target="#submit-register">
+Create Login
+</button>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div  class="container bugCarousel" style="width:50%; height:450px;">
+  <div id="myCarousel" class="carousel slide bugCarousel" data-ride="carousel" >
+    <!-- Indicators -->
+    <ol class="carousel-indicators bugCarousel">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://user-images.githubusercontent.com/28842407/30710963-297aa00e-9ed5-11e7-8f91-e94abd99408e.png" alt="aphids" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="https://user-images.githubusercontent.com/28842407/30711024-66ae8a76-9ed5-11e7-8ad1-c56ccc59549e.png" alt="cucumber beetle" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="https://user-images.githubusercontent.com/28842407/30711038-79d79dae-9ed5-11e7-9c4d-ae48afa19e6b.png" alt="potato beetle" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<!-- containers holding results displayed from Vegetables, Pests, and Garden resources -->
+  <div class="display">
+    <!-- headings for displayed info -->
+    <div class="row">
+      <div class="col-sm-4">
+        <h4 class="table-titles"> Nick's garden.</h4>
+      </div>
+      <div class="col-sm-4">
+        <h4 class="table-titles"> Pest List.</h4>
+      </div>
+      <div class="col-sm-4">
+        <h4 class="table-titles">Your garden.</h4>
+      </div>
+    </div>
+    <!-- containers for displayed info -->
+    <div class="row">
+      <div class="display-list col-sm-4">
+      </div>
+      <div class="pest-list col-sm-4">
+      </div>
+      <div class="your-list col-sm-4">
+      </div>
+    </div>
+  </div>
+  <!-- Modal for login -->
+  <div class="modal fade" id="submit-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">User Login</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-clear" id="sign-in">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Confirm Password</label>
+              <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+            </div>
+            <button id="submit" type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="login-message modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <!-- create account modal -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="modal fade" id="submit-register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create Login</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-clear" id="sign-up">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="credentials[email]" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"> Confirm Password</label>
+                    <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Re-type Password">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+              </div>
+              <div class="sign-up-message modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal for log out -->
+  <div class="modal fade" id="log-out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Are you sure you want to log out?</h4>
+        </div>
+        <div class="modal-body">
+          <form id="logout">
+            <button type="submit" class="btn btn-default">Yes, log out</button>
+          </form>
+        </div>
+        <div class="logout-message modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for password reset-->
+  <div class="modal fade" id="submit-change-password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Password Reset</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-clear" id="change-password">
+            <div class="form-group">
+              <label for="currentPassword">Current Password</label>
+              <input name="passwords[old]" type="password" class="form-control" id="currentPassword" placeholder="Current Password">
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input type="password" name="passwords[new]" class="form-control" id="newPassword" placeholder="New Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="change-pswrd-message modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <!-- content pinned to bottom of page -->
+  <footer class="footer">
+    <p class="signature">An app by Nicholas Piaskoski</p>
+  </footer>
+</body>
+
+</html>
